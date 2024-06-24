@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Tools;
+
 trait ToStringTrait
 {
     protected string $name;

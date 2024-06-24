@@ -1,5 +1,10 @@
 <?php
 
+namespace App\User;
+
+use App\Auth\Interface\AuthInterface;
+use App\Tools\ToStringTrait;
+
 abstract class AbstractUser implements AuthInterface
 {
     use ToStringTrait;

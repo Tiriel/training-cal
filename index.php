@@ -1,12 +1,17 @@
 <?php
 
-require_once __DIR__.'/AuthException.php';
-require_once __DIR__.'/ToStringTrait.php';
-require_once __DIR__.'/AuthInterface.php';
-require_once __DIR__ . '/AbstractUser.php';
-require_once __DIR__.'/Member.php';
-require_once __DIR__.'/AdminLevel.php';
-require_once __DIR__.'/Admin.php';
+use App\Auth\Exception\AuthException;
+use App\User\Admin;
+use App\User\Enum\AdminLevel;
+use App\User\Member;
+
+require_once __DIR__.'/src/Auth/Exception/AuthException.php';
+require_once __DIR__.'/src/Tools/ToStringTrait.php';
+require_once __DIR__.'/src/Auth/Interface/AuthInterface.php';
+require_once __DIR__ .'/src/User/AbstractUser.php';
+require_once __DIR__.'/src/User/Member.php';
+require_once __DIR__.'/src/User/Enum/AdminLevel.php';
+require_once __DIR__.'/src/User/Admin.php';
 
 $m1 = new Member('User Ben', 'Ben', 'abcd1234', 37);
 $m2 = new Member('User Tom', 'Tom', 'abcd1234', 37);

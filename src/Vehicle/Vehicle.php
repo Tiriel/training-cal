@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Vehicle;
+
+use App\Tools\ToStringTrait;
+
 abstract class Vehicle
 {
     use ToStringTrait;

@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Auth\Exception;
+
 class AuthException extends \InvalidArgumentException
 {
     public function __construct(string $login)

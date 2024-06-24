@@ -1,5 +1,9 @@
 <?php
 
+namespace App\User;
+
+use App\Auth\Exception\AuthException;
+
 class Member extends AbstractUser
 {
     protected static int $count = 0;
