@@ -6,7 +6,10 @@ class Member extends AbstractUser
 
     public function auth(string $login, string $password): bool
     {
-        return $login === $this->login
-            && $password === $this->password;
+        if ($login !== $this->login || $password !== $this->password) {
+            throw new AuthException($login);
+        }
+
+        return true;
     }
 }

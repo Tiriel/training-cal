@@ -1,5 +1,6 @@
 <?php
 
+require_once __DIR__.'/AuthException.php';
 require_once __DIR__.'/ToStringTrait.php';
 require_once __DIR__.'/AuthInterface.php';
 require_once __DIR__ . '/AbstractUser.php';
@@ -19,9 +20,13 @@ unset($m2);
 echo 'Member : '.Member::count()."\n"; // 1
 echo 'Admin : '.Admin::count()."\n"; // 1
 
-echo $m1->auth('Ben', 'abcd1234')
-    ? "Authentified as {$m1->getName()}\n"
-    : "Wrong credentials\n";
+try {
+    echo $m1->auth('Ben', 'abc1234')
+        ? "Authentified as {$m1->getName()}\n"
+        : "Wrong credentials\n";
+} catch (AuthException $e) {
+    echo $e->getMessage()."\n";
+}
 
 echo $a1->auth('Ben', 'abcd1234')
     ? "Authentified as {$a1->getName()}\n"
