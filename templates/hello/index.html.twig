@@ -2,6 +2,11 @@
 
 {% block title 'Hello HelloController!' %}
 
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('hello') }}
+{% endblock %}
+
 {% block body %}
 <style>
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
@@ -20,5 +25,6 @@
 {#            <li>{{ loop.index }} : {{ letter }}</li>#}
 {#        {% endfor %}#}
     </ul>
+    <img src="{{ asset('build/images/31116_JssY.jpeg') }}" alt="Blague">
 </div>
 {% endblock %}
