@@ -23,4 +23,14 @@ class MainController extends AbstractController
             'controller_name' => 'Contact',
         ]);
     }
+
+    public function counts(): Response
+    {
+        // ...
+
+        return $this->render('include/_counts.html.twig', [
+            'movie_count' => 5687,
+            'book_count' => 256,
+        ])->setTtl(3600);
+    }
 }

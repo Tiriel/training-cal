@@ -20,5 +20,8 @@
     <main>
         {% block body %}{% endblock %}
     </main>
+    <footer>
+        {{ render_esi(controller('App\\Controller\\MainController::counts')) }}
+    </footer>
     </body>
 </html>
