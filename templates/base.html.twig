@@ -14,11 +14,12 @@
     </head>
     <body>
     <header>
+        {% block header %}{% endblock %}
         {% block navbar %}
             {{ include('include/_navbar.html.twig') }}
         {% endblock %}
     </header>
-    <main>
+    <main class="container pt-5 m-auto vh-100">
         {% block body %}{% endblock %}
     </main>
     <footer>

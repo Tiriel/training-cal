@@ -13,7 +13,7 @@ class BookController extends AbstractController
     public function index(): Response
     {
         return $this->render('book/index.html.twig', [
-            'controller_name' => 'BookController::index',
+            'books' => [],
         ]);
     }
 
@@ -22,7 +22,7 @@ class BookController extends AbstractController
     public function show(int $id = 1): Response
     {
         return $this->render('book/show.html.twig', [
-            'controller_name' => 'BookController::show - Id '.$id,
+            'book' => [],
         ]);
     }
 }
