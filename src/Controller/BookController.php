@@ -36,6 +36,16 @@ class BookController extends AbstractController
         ]);
     }
 
+    #[Route('/title/{title}', name: 'app_book_title', methods: ['GET'])]
+    public function title(string $title, BookRepository $repository): Response
+    {
+        $book = $repository->findLikeTitle($title);
+
+        return $this->render('book/show.html.twig', [
+            'book' => $book,
+        ]);
+    }
+
     #[Route('/new', name: 'app_book_new', methods: ['GET', 'POST'])]
     public function new(EntityManagerInterface $manager): Response
     {

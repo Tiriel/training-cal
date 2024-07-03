@@ -16,7 +16,7 @@
         <div class="row row-cols-3">
             {% for movie in movies %}
                 <div class="col">
-                    <a hidden="{{ path('app_movie_show', {id: movie.id}) }}">
+                    <a href="{{ path('app_movie_show', {id: movie.id}) }}">
                         <div class="card w-75 m-auto">
                             <img src="{{ movie.poster }}" alt="{{ movie.poster }}">
                             <div class="card-img-overlay text-white">
