@@ -2,11 +2,25 @@
 
 namespace App\Dto;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 class Contact
 {
+    #[Assert\Length(min: 3, max: 255)]
+    #[Assert\NotBlank()]
     protected ?string $name = null;
+
+    #[Assert\Email()]
+    #[Assert\NotBlank()]
+    #[Assert\Regex('/\.fr$/', message: 'This value should end with ".fr"')]
     protected ?string $email = null;
+
+    #[Assert\Length(min: 3, max: 255)]
+    #[Assert\NotBlank()]
     protected ?string $subject = null;
+
+    #[Assert\Length(min: 20, max: 1000)]
+    #[Assert\NotBlank()]
     protected ?string $message = null;
     protected ?\DateTimeImmutable $createdAt = null;
 

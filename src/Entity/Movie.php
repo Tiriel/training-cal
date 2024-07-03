@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: MovieRepository::class)]
 class Movie
@@ -34,6 +35,7 @@ class Movie
     #[ORM\Column(nullable: true)]
     private ?int $price = null;
 
+    #[Assert\Unique()]
     #[ORM\ManyToMany(targetEntity: Genre::class, cascade: ['persist'])]
     private Collection $genres;
 
