@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ book.id is not null ? book.title : 'New Book' }}{% endblock %}
+
+{% block body %}
+    <div class="example-wrapper">
+        <h1>{{ book.id is not null ? book.title : 'New Book' }}</h1>
+
+        {{ include('include/_form.html.twig') }}
+    </div>
+{% endblock %}

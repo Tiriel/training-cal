@@ -1,10 +1,13 @@
 {% extends 'base.html.twig' %}
 
+{% form_theme form 'bootstrap_5_layout.html.twig' %}
+
 {% block title %}Contact Us{% endblock %}
 
 {% block body %}
-<div class="example-wrapper w-50 m-auto">
+<div class="example-wrapper w-50 m-auto px-5">
     <h1>Contact Us</h1>
 
+    {{ include('include/_form.html.twig') }}
 </div>
 {% endblock %}
