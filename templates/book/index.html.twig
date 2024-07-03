@@ -23,5 +23,21 @@
                 <p>No books in database yet...</p>
             {% endfor %}
         </section>
+        {% set current = app.request.query.get('page', 1) %}
+        <nav class="py-5 m-auto">
+            <ul class="pagination">
+                <li class="page-item{{ current == 1 ? ' disabled' }}">
+                    <a class="page-link" href="{{ path('app_book_index', {page: current - 1}) }}">Previous</a>
+                </li>
+                {% for page in 1..count %}
+                    <li class="page-item{{ current == page ? ' active' }}">
+                        <a class="page-link" href="{{ path('app_book_index', {page: page}) }}">{{ page }}</a>
+                    </li>
+                {% endfor %}
+                <li class="page-item{{ current == count ? ' disabled' }}">
+                    <a class="page-link" href="{{ path('app_book_index', {page: current + 1}) }}">Next</a>
+                </li>
+            </ul>
+        </nav>
     </div>
 {% endblock %}
