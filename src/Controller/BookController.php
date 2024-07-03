@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Book;
 use App\Repository\BookRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,12 +27,30 @@ class BookController extends AbstractController
         ]);
     }
 
-    #[Route('/{id<\d+>?0}', name: 'app_book_show', methods: ['GET'])]
+    #[Route('/{id<\d+>}', name: 'app_book_show', methods: ['GET'])]
     //#[Route('/{id}', name: 'app_book_show', requirements: ['id' => '\d+'], defaults: ['id' => 0], methods: ['GET'])]
-    public function show(int $id = 1): Response
+    public function show(Book $book): Response
     {
         return $this->render('book/show.html.twig', [
-            'book' => [],
+            'book' => $book,
         ]);
+    }
+
+    #[Route('/new', name: 'app_book_new', methods: ['GET', 'POST'])]
+    public function new(EntityManagerInterface $manager): Response
+    {
+        //$book = (new Book())
+        //    ->setTitle('1984')
+        //    ->setIsbn('978-0451524935')
+        //    ->setAuthor('G.Orwell')
+        //    ->setPlot('This book is too real')
+        //    ->setEditedAt(new \DateTimeImmutable('01-01-1951'))
+        //    ->setEditor('Pocket')
+        //    ->setCover('https://m.media-amazon.com/images/I/71rpa1-kyvL._SY466_.jpg')
+        //;
+        //$manager->persist($book);
+        //$manager->flush();
+
+        return $this->redirectToRoute('app_book_show', ['id' => $book->getId()]);
     }
 }
